@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenNanoHeal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo OpenNanoHeal" class="logo" />
+    <h1 id="title">OpenNanoHeal</h1>
+    <p id="subtitle">Technologia leczenia dla wszystkich istot żywych.</p>
+    <div class="controls">
+      <div class="lang-switch">
+        <button onclick="switchLang('pl')">🇵🇱 PL</button>
+        <button onclick="switchLang('en')">🇬🇧 EN</button>
+      </div>
+      <div class="theme-switch">
+        <button onclick="toggleTheme()">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="mission">
+    <h2 id="mission-title">🌱 Misja</h2>
+    <p id="mission-text">
+      Budujemy otwartą platformę nanotechnologii regeneracyjnej, wspieraną przez sztuczną inteligencję — by każdy mógł leczyć, ratować i wspierać życie, niezależnie od środków.
+    </p>
+  </section>
+
+  <section class="goals">
+    <h2 id="goals-title">🎯 Nasze cele</h2>
+    <ul id="goals-list">
+      <li>Tworzenie otwartego sprzętu i oprogramowania do wspomagania gojenia ran</li>
+      <li>Zastosowanie AI do analizy, diagnozy i wspomagania procesów regeneracyjnych</li>
+      <li>Współpraca z edukatorami, organizacjami pomocowymi i społecznością</li>
+    </ul>
+  </section>
+
+  <section class="get-involved">
+    <h2 id="join-title">🤝 Dołącz do nas</h2>
+    <p id="join-text-1">Znajdziesz nas na <a href="https://github.com/TwojeRepo">GitHub</a>, gdzie publikujemy wszystkie dane, kod i plany sprzętowe.</p>
+    <p id="join-text-2">Razem możemy stworzyć coś większego niż suma naszych kodów.</p>
+  </section>
+
+  <section class="contact">
+    <h2 id="contact-title">📬 Skontaktuj się z nami</h2>
+    <form id="contact-form">
+      <input type="text" name="user_name" id="input-name" placeholder="Twoje imię" required />
+      <input type="email" name="user_email" id="input-email" placeholder="Twój e-mail" required />
+      <textarea name="message" id="input-message" placeholder="Wiadomość..." required></textarea>
+      <button type="submit" id="form-submit">Wyślij</button>
+      <p id="form-status"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p id="footer-text">© 2025 OpenNanoHeal. Open Source. For Life.</p>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    (function() {
+      emailjs.init("YOUR_PUBLIC_KEY"); // <-- zamień na swój PUBLIC KEY z EmailJS
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(() => {
+          document.getElementById("form-status").innerText = "✅ Wiadomość została wysłana!";
+        }, (err) => {
+          document.getElementById("form-status").innerText = "❌ Wystąpił błąd: " + err.text;
+        });
+    });
+  </script>
+</body>
+</html>
