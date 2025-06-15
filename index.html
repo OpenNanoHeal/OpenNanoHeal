@@ -65,12 +65,12 @@
   <script src="lang.js"></script>
   <script>
     (function() {
-      emailjs.init("YOUR_PUBLIC_KEY"); // <-- zamień na swój PUBLIC KEY z EmailJS
+      emailjs.init("A-F2xCQ4XXwm8e6c7"); // <-- zamień na swój PUBLIC KEY z EmailJS
     })();
 
     document.getElementById("contact-form").addEventListener("submit", function(e) {
       e.preventDefault();
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+      emailjs.sendForm("service_982pqhm", "template_bediu7g", this)
         .then(() => {
           document.getElementById("form-status").innerText = "✅ Wiadomość została wysłana!";
         }, (err) => {
